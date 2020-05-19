@@ -112,57 +112,36 @@
     </div>
 </header>
         <main class="main">
-            
-<section class="posts">
+            <article class="post">
     
-        <article class="post">
-            
-                    <h1 class="post-title">
-                        <a href="/uncategorized/Java%E5%8F%8D%E5%B0%84%E8%B8%A9%E5%9D%91/">
-                            Java反射踩坑
-                        </a>
-                    </h1>
+    
+    
+    <h2 class="post-title">
+        Java基础
+    </h2>
+    <ul class="post-date">
+        <li>
+            2020-01-17
+        </li>
+        <li>
+            ArchGeass
+        </li>
+    </ul>
+    <div class="post-content">
+        <h1 id="快捷初始化List"><a href="#快捷初始化List" class="headerlink" title="快捷初始化List"></a>快捷初始化List</h1><ul>
+<li>list<T> list = Arrays.asList(args1,args2,…);<h1 id="List-forEach修改list元素的值"><a href="#List-forEach修改list元素的值" class="headerlink" title="List.forEach修改list元素的值"></a>List.forEach修改list元素的值</h1>如果想要批量修改List中元素的值，除了用循环遍历修改之外，还可以用Java8的lambda表达式执行list.forEach方法，批量进行修改</li>
+<li>list.forEach(e-&gt;e.setValue(newValue));</li>
+</ul>
+<h1 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型<T></h1><p>T 代表一般的任何类。<br>E 代表 Element 的意思，或者 Exception 异常的意思 (Java Collections框架大量使用)<br>K 代表 Key 的意思。<br>V 代表 Value 的意思，通常与 K 一起配合使用。<br>S 代表 Subtype 的意思</p>
+<h2 id="Java-泛型上下界–PECS-原则"><a href="#Java-泛型上下界–PECS-原则" class="headerlink" title="Java 泛型上下界–PECS 原则"></a>Java 泛型上下界–PECS 原则</h2><p>List&lt;? extends B&gt;<br>List&lt;? super B&gt;<br>List<T extends E><br>List<T super E></p>
+<h2 id="多重上界"><a href="#多重上界" class="headerlink" title="多重上界"></a>多重上界</h2><p>&lt;T extends AA &amp; BB&gt;</p>
+<h2 id="Java-的泛型是在-编译器-层次实现的。"><a href="#Java-的泛型是在-编译器-层次实现的。" class="headerlink" title="Java 的泛型是在 编译器 层次实现的。"></a>Java 的泛型是在 编译器 层次实现的。</h2><p>在编译生成的字节码中不包含泛型中的类型参数，类型参数会在编译时去掉。<br>例如：List<String> 和 List<Integer> 在编译后都变成 List</p>
+<h1 id="位运算"><a href="#位运算" class="headerlink" title="位运算"></a>位运算</h1><p>位运算是二进制下的运算，与10进制下的基本运算不同。</p>
+<h2 id="左移"><a href="#左移" class="headerlink" title="左移"></a>左移</h2><p>左移为乘法运算，左移几位就是乘2的几次方</p>
+<h2 id="右移"><a href="#右移" class="headerlink" title="右移"></a>右移</h2><p>右移为除法运算，右移几位就是除以2的几次方</p>
 
-                    <ul class="post-date">
-                        <li>
-                            March 20, 2020
-                        </li>
-                        <li>
-                            ArchGeass
-                        </li>
-                    </ul>
-                    
-                    <div class="post-content ">
-                        
-                            <a href="/uncategorized/Java%E5%8F%8D%E5%B0%84%E8%B8%A9%E5%9D%91/" class="more-link">Continue reading</a>
-                    </div>
-        </article>
-        
-        <article class="post">
-            
-                    <h1 class="post-title">
-                        <a href="/uncategorized/java8%E7%9F%A5%E8%AF%86%E7%82%B9/">
-                            Java8知识点
-                        </a>
-                    </h1>
-
-                    <ul class="post-date">
-                        <li>
-                            March 20, 2020
-                        </li>
-                        <li>
-                            ArchGeass
-                        </li>
-                    </ul>
-                    
-                    <div class="post-content ">
-                        
-                            <a href="/uncategorized/java8%E7%9F%A5%E8%AF%86%E7%82%B9/" class="more-link">Continue reading</a>
-                    </div>
-        </article>
-        
-</section>
-
+    </div>
+</article>
         </main>
         <aside class="aside">
             <div class="close"></div>

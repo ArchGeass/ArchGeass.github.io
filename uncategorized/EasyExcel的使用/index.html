@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta name="keywords" content="hexo, autumn" />
+    <title>
+        ArchGeass
+    </title>
+    <!-- favicon -->
+    
+    <link rel="icon" href="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/favicon.ico" />
+     
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- highlight -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/github-gist.min.css" />
+    <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad()
+    </script>
+    <script src="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@2.0.0/dist/main.js"></script>
+
+    <script>
+        infiniteScroll()
+
+        window.addEventListener('DOMContentLoaded', function () {
+            const [
+                mainTitle,
+                mobileMenu,
+                mobileMainTitle,
+                mobileMenuBtn,
+                ipadMenuBtn,
+                aside,
+                closeBtn,
+            ] = getEle(
+                '#main-title',
+                '.mobile-menu',
+                '.mobile-menu h3',
+                '.mobile-menu button',
+                '.ipad-menu',
+                'aside',
+                'aside .close',
+            )
+            const io = new IntersectionObserver(entries => {
+                if (entries[0].intersectionRatio <= 0) {
+                    mobileMainTitle.classList.remove('invisibile')
+                } else {
+                    mobileMainTitle.classList.add('invisibile')
+                }
+            })
+            io.observe(mainTitle)
+
+            clickToggleAside(mobileMenuBtn)
+            clickToggleAside(ipadMenuBtn)
+            clickToggleAside(closeBtn, false)
+
+            const isMenuVisible = window.getComputedStyle(mobileMenu).display !== 'none'
+            if (isMenuVisible) document.body.style.background = 'none'
+
+            function getEle(...args) {
+                return args.map(arg => document.querySelector(arg))
+            }
+
+            function clickToggleAside(btn, show = true) {
+                btn.addEventListener('click', function () {
+                    if (show) {
+                        aside.style.display = 'block'
+                    } else {
+                        aside.style.display = 'none'
+                    }
+                })
+            }
+        })
+    </script>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
+    <div class="container">
+        <header class="header">
+    <nav class="mobile-menu" style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
+        <h3 class="invisibile">
+            <a href="/" class="logo">
+                ArchGeass
+            </a>
+        </h3>
+        <button class="menu">menu</button>
+    </nav>
+
+    <button class="ipad-menu menu">menu</button>
+
+    <h1 class="title" id="main-title">
+        <a href="/" class="logo">
+            ArchGeass
+        </a>
+    </h1>
+    <h2 class="desc">
+        Java Software Development Engineer
+    </h2>
+
+    <div class="links">
+        <ul>
+            
+            <li>
+                <a href="https://github.com/ArchGeass/" target="_blank" rel="noopener">
+                    Github
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</header>
+        <main class="main">
+            <article class="post">
+    
+    
+    
+    <h2 class="post-title">
+        EasyExcel的使用
+    </h2>
+    <ul class="post-date">
+        <li>
+            2020-04-05
+        </li>
+        <li>
+            ArchGeass
+        </li>
+    </ul>
+    <div class="post-content">
+        <h1 id="EasyExcel的使用"><a href="#EasyExcel的使用" class="headerlink" title="EasyExcel的使用"></a>EasyExcel的使用</h1><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>easyexcel<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">version</span>&gt;</span>2.2.0-beta2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h1 id="表头的class-固定版"><a href="#表头的class-固定版" class="headerlink" title="表头的class(固定版)"></a>表头的class(固定版)</h1><p>JavaBean对应Excel的表头<br>com.alibaba.excel.annotation.@ExcelProperty<br>value=”表头的Name”,index=第几列</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.alibaba.excel.annotation;</span><br><span class="line"><span class="meta">@lombok</span>.Data</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ExcelTitle</span></span>&#123;</span><br><span class="line">  <span class="meta">@ExcelProperty</span>(value=<span class="string">"第一列表头内容"</span>,index=<span class="number">0</span>)</span><br><span class="line">  <span class="keyword">private</span> String firstTitle;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个与Excel对应的JavaBean即可以读取也可以写入</p>
+<h1 id="read"><a href="#read" class="headerlink" title="read"></a>read</h1><p><a href="https://github.com/alibaba/easyexcel/blob/master/src/test/java/com/alibaba/easyexcel/test/demo/read/ReadTest.java" target="_blank" rel="noopener">see</a></p>
+<h2 id="静态读"><a href="#静态读" class="headerlink" title="静态读"></a>静态读</h2><p>//<a href="https://github.com/alibaba/easyexcel/blob/6dcc85ff459698b8f180ae452a371aa287519e42/src/test/java/com/alibaba/easyexcel/test/demo/read/DemoDataListener.java" target="_blank" rel="noopener">DemoExceptionListener</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">EasyExcel.read(excleFileName, ExcelTitle<span class="class">.<span class="keyword">class</span>, <span class="title">new</span> <span class="title">DemoExceptionListener</span>()).<span class="title">sheet</span>().<span class="title">doRead</span>()</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="动态读"><a href="#动态读" class="headerlink" title="动态读"></a>动态读</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">AnalysisEventListener&lt;Map&lt;Integer,String&gt;&gt; listener;</span><br><span class="line">EasyExcel.read(excleFileName, listener).sheet().doRead();</span><br><span class="line"><span class="comment">//or</span></span><br><span class="line">List&lt;Map&lt;Integer, String&gt;&gt; listMap = EasyExcel.read(excleFileName).sheet().doReadSync();</span><br></pre></td></tr></table></figure>
+<h1 id="write"><a href="#write" class="headerlink" title="write"></a>write</h1><h2 id="静态写"><a href="#静态写" class="headerlink" title="静态写"></a>静态写</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">EasyExcel.write(writeFile,ExcelTitle<span class="class">.<span class="keyword">class</span>).<span class="title">registerWriteHandler</span>(<span class="title">getDefaultExcelHead</span>()).<span class="title">sheet</span>(0,<span class="title">sheetName</span>).<span class="title">doWrite</span>(<span class="title">List</span>&lt;?&gt; <span class="title">data</span>)</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="动态写"><a href="#动态写" class="headerlink" title="动态写"></a>动态写</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ExcelWriter excelWriter;</span><br><span class="line">WriteSheet writeSheet = EasyExcel.writerSheet(sheetNo,sheetName).registerWriteHandler(getDefaultExcelHead()).head(dynamicHead).build();</span><br><span class="line">excelWriter.write(List&lt;?&gt; data,writeSheet);</span><br><span class="line">excelWriter.finish();</span><br></pre></td></tr></table></figure>
+<h1 id="自定义样式"><a href="#自定义样式" class="headerlink" title="自定义样式"></a>自定义样式</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> HorizontalCellStyleStrategy <span class="title">getDefaultExcelHead</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="comment">//头的字体设置</span></span><br><span class="line">WriteFont headWriteFont = <span class="keyword">new</span> WriteFone();</span><br><span class="line">headWriteFont.setBold(<span class="keyword">false</span>);<span class="comment">//取消粗体</span></span><br><span class="line">headWriteFont.setFontName(<span class="string">"宋体"</span>);<span class="comment">//此处可直接指定使用的字体名词</span></span><br><span class="line">headWriteFont.setFontHeightInPoints((<span class="keyword">short</span>)<span class="number">11</span>);<span class="comment">//设置字体大小</span></span><br><span class="line"><span class="comment">//设置头</span></span><br><span class="line">WriteCellStyle headWriteCellStyle = <span class="keyword">new</span> WriteCellStyle();</span><br><span class="line">headWriteCellStyle.setWriteFont(headWriteFont);</span><br><span class="line">headWriteCellStyle.setFillForegroundColor(IndexedColors.WHITE1.getIndex());<span class="comment">//颜色修改为白色</span></span><br><span class="line">headWriteCellStyle.setWrapped(<span class="keyword">false</span>);<span class="comment">//取消换行</span></span><br><span class="line">headWriteCellStyle.setBorderLeft(BorderStyle.THIN);<span class="comment">//设置1边框</span></span><br><span class="line">headWriteCellStyle.setBorderRight(BorderStyle.THIN);</span><br><span class="line">headWriteCellStyle.setBorderTop(BorderStyle.THIN);</span><br><span class="line">headWriteCellStyle.setBorderBottom(BorderStyle.THIN);</span><br><span class="line">headWriteCellStyle.setHorizontalAlignment(HorizontalAlignment.LEFT);<span class="comment">//左对齐</span></span><br><span class="line">headWriteCellStyle.setLeftBorderColor(IndexedColors.WHITE1.getIndex());<span class="comment">//修改边框颜色</span></span><br><span class="line">headWriteCellStyle.setRightBorderColor(IndexedColors.WHITE1.getIndex());</span><br><span class="line">headWriteCellStyle.setTopBorderColor(IndexedColors.WHITE1.getIndex());</span><br><span class="line">headWriteCellStyle.setBottomBorderColor(IndexedColors.WHITE1.getIndex());</span><br><span class="line"><span class="comment">//内容的策略</span></span><br><span class="line">WriteCellStyle contentWriteCellStyle = <span class="keyword">new</span> WriteCellStyle();</span><br><span class="line"><span class="comment">//这里需要指定FillPatternType为FillPatternType.SOLID_FOREGROUND不然无法显示背景颜色.头默认了FillPatternType所以可以不指定</span></span><br><span class="line">contentWriteCellStyle.setFillPatternType(FillPatternType.SOLID_FOREGROUND);</span><br><span class="line">contentWriteCellStyle.setFillForegroundColor(IndexedColors.GREEN.getIndex());<span class="comment">//背景绿色</span></span><br><span class="line">WriteFont contentWriteFont = <span class="keyword">new</span> WriteFont();</span><br><span class="line"><span class="comment">//字体大小</span></span><br><span class="line">contentWriteFont.setFontHeightInPoints((<span class="keyword">short</span>)<span class="number">20</span>);</span><br><span class="line">contentWriteCellStyle.setWriteFont(contentWriteFont);</span><br><span class="line"><span class="keyword">return</span> <span class="keyword">new</span> HorizontalCellStyleStrategy(headWriteCellStyle,contentWriteCellStyle);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+    </div>
+</article>
+        </main>
+        <aside class="aside">
+            <div class="close"></div>
+            <section class="aside-section">
+                
+    <h1>Categories</h1>
+
+    
+
+            </section>
+            <section class="aside-section">
+                
+    <h1>Archives</h1>
+
+    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a></li></ul>
+
+
+            </section>
+            <section class="aside-section tag">
+                
+    <h1>Tags</h1>
+
+    <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Excel/" rel="tag">Excel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Http/" rel="tag">Http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JVM/" rel="tag">JVM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/idea/" rel="tag">idea</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/" rel="tag">spring</a></li></ul>
+
+            </section>
+        </aside>
+    </div>
+</body>
+
+</html>

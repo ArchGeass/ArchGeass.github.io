@@ -112,57 +112,27 @@
     </div>
 </header>
         <main class="main">
-            
-<section class="posts">
+            <article class="post">
     
-        <article class="post">
-            
-                    <h1 class="post-title">
-                        <a href="/uncategorized/Java%E5%8F%8D%E5%B0%84%E8%B8%A9%E5%9D%91/">
-                            Java反射踩坑
-                        </a>
-                    </h1>
+    
+    
+    <h2 class="post-title">
+        JVM内存模型的理解
+    </h2>
+    <ul class="post-date">
+        <li>
+            2020-01-13
+        </li>
+        <li>
+            ArchGeass
+        </li>
+    </ul>
+    <div class="post-content">
+        <h1 id="内存划分"><a href="#内存划分" class="headerlink" title="内存划分"></a>内存划分</h1><p>JVM中分为<em>栈</em>和<em>堆</em>2部分，程序运行时，我们申请的变量等都在堆中申请存储空间，而对于每个线程，都在栈中存在一个对应的线程栈。比如我们执行的<em>Main<em>方法，在运行时就对应了</em>Main<em>栈。<br>每一个栈中都存在很多不同的</em>栈帧(StackFrame)</em> ，具体来讲就是在调试过程中的每一个调用方法。当一个具体的栈帧执行完毕后，会出栈，其内部申请的局部变量也会随之被销毁。所以每一个具体的FIFO栈中，总是最开始执行的<em>Main</em>方法在栈的最底层，依次被调用的方法栈帧随之被置于<em>Main</em>之上，在不断的入栈出栈的完成一步步操作，直到最后<em>Main</em>的出栈而结束。<br>ps.并非每个线程栈的最初调用者都是<em>Main</em>，此处只是以我们耳熟能详的<em>Main</em>方法进行举例说明而已。</p>
+<h1 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h1><h2 id="栈帧"><a href="#栈帧" class="headerlink" title="栈帧"></a>栈帧</h2><h2 id="GC-Roots"><a href="#GC-Roots" class="headerlink" title="GC Roots"></a>GC Roots</h2><h1 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h1><h2 id="GC"><a href="#GC" class="headerlink" title="GC"></a>GC</h2><p>从<em>GC Roots</em>不可达的变量称为垃圾，会被GC回收。</p>
 
-                    <ul class="post-date">
-                        <li>
-                            March 20, 2020
-                        </li>
-                        <li>
-                            ArchGeass
-                        </li>
-                    </ul>
-                    
-                    <div class="post-content ">
-                        
-                            <a href="/uncategorized/Java%E5%8F%8D%E5%B0%84%E8%B8%A9%E5%9D%91/" class="more-link">Continue reading</a>
-                    </div>
-        </article>
-        
-        <article class="post">
-            
-                    <h1 class="post-title">
-                        <a href="/uncategorized/java8%E7%9F%A5%E8%AF%86%E7%82%B9/">
-                            Java8知识点
-                        </a>
-                    </h1>
-
-                    <ul class="post-date">
-                        <li>
-                            March 20, 2020
-                        </li>
-                        <li>
-                            ArchGeass
-                        </li>
-                    </ul>
-                    
-                    <div class="post-content ">
-                        
-                            <a href="/uncategorized/java8%E7%9F%A5%E8%AF%86%E7%82%B9/" class="more-link">Continue reading</a>
-                    </div>
-        </article>
-        
-</section>
-
+    </div>
+</article>
         </main>
         <aside class="aside">
             <div class="close"></div>

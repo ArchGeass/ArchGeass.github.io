@@ -112,57 +112,40 @@
     </div>
 </header>
         <main class="main">
-            
-<section class="posts">
+            <article class="post">
     
-        <article class="post">
-            
-                    <h1 class="post-title">
-                        <a href="/uncategorized/Java%E5%8F%8D%E5%B0%84%E8%B8%A9%E5%9D%91/">
-                            Java反射踩坑
-                        </a>
-                    </h1>
+    
+    
+    <h2 class="post-title">
+        Java8知识点
+    </h2>
+    <ul class="post-date">
+        <li>
+            2020-03-20
+        </li>
+        <li>
+            ArchGeass
+        </li>
+    </ul>
+    <div class="post-content">
+        <h1 id="Stream用法"><a href="#Stream用法" class="headerlink" title="Stream用法"></a>Stream用法</h1><ul>
+<li>1.对于List可以调用<code>.stream()</code>方法开启流.</li>
+<li>2.对stream过滤调用<code>.filter()</code>方法，参数传递过滤的条件，可用lambda表达式.</li>
+<li>3.对于统计可直接在stream后调用<code>.count()</code>方法获取统计个数.</li>
+<li>4.对于排序操作可在stream后调用<code>.sorted()</code>方法，参数传递排序的条件，如<code>Comparator.comparingInt(User::getAge)</code>，默认从小到大，接着调用<code>.reversed()</code>方法可反转排序条件.</li>
+<li>5.在操作结束时调用<code>.collect()</code>方法可获取处理结果，参数传递需要接受的返回参数类型，如<code>Collectors.toList()</code>可以获取一个List结果，<code>Collectors.toCollection(LinkedList::new)</code>可以获取一个LinkedList结果.</li>
+<li>6.如果需要对操作对象进行转化，可在stream后调用<code>.map()</code>方法，参数传递类型转化的条件，如<code>map(User::getName)</code>可以获取List<User>中的Name.</li>
+<li>7.如果要操作的对象是String，调用String的<code>chars()</code>方法，可以将String转化为一个<em>IntStream</em>后，进行stream处理.</li>
+<li>8.对操作的对象分组调用<code>.collect(Collectors.groupingBy())</code>，参数传递分组的条件；同时需要分组+排序时，可以先排序再分组.</li>
+<li>9.stream的处理结果可以获取map类型的返回数据，在<code>collect()</code>中传递<code>Collectors.toMap()</code>方法，toMap的参数为需要映射/转换的数据类型，如<code>toMap(Order::getId, order -&gt; order)</code>.</li>
+<li>10.将stream的元素连接在一起，可以在<em>.collect()</em> 中调用<code>Collectors.joining()</code>，参数传递连接的符号，如<code>,</code>.</li>
+<li>11.诸如<code>List&lt;List&lt;&gt;&gt;-&gt;List&lt;&gt;</code>这样的转换可以用<code>stream.flatMap(List::stream).collect(toList())</code>来实现</li>
+<li>12.<code>boolean anyMatch(Predicate&lt;? super T&gt; predicate)</code>只要有一个条件满足即返回true;<br><code>boolean allMatch(Predicate&lt;? super T&gt; predicate)</code>必须全部都满足才会返回true;<br><code>boolean noneMatch(Predicate&lt;? super T&gt; predicate)</code>全都不满足才会返回true</li>
+<li>13.</li>
+</ul>
 
-                    <ul class="post-date">
-                        <li>
-                            March 20, 2020
-                        </li>
-                        <li>
-                            ArchGeass
-                        </li>
-                    </ul>
-                    
-                    <div class="post-content ">
-                        
-                            <a href="/uncategorized/Java%E5%8F%8D%E5%B0%84%E8%B8%A9%E5%9D%91/" class="more-link">Continue reading</a>
-                    </div>
-        </article>
-        
-        <article class="post">
-            
-                    <h1 class="post-title">
-                        <a href="/uncategorized/java8%E7%9F%A5%E8%AF%86%E7%82%B9/">
-                            Java8知识点
-                        </a>
-                    </h1>
-
-                    <ul class="post-date">
-                        <li>
-                            March 20, 2020
-                        </li>
-                        <li>
-                            ArchGeass
-                        </li>
-                    </ul>
-                    
-                    <div class="post-content ">
-                        
-                            <a href="/uncategorized/java8%E7%9F%A5%E8%AF%86%E7%82%B9/" class="more-link">Continue reading</a>
-                    </div>
-        </article>
-        
-</section>
-
+    </div>
+</article>
         </main>
         <aside class="aside">
             <div class="close"></div>

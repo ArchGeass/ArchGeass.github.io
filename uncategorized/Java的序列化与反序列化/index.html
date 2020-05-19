@@ -112,57 +112,32 @@
     </div>
 </header>
         <main class="main">
-            
-<section class="posts">
+            <article class="post">
     
-        <article class="post">
-            
-                    <h1 class="post-title">
-                        <a href="/uncategorized/Java%E5%8F%8D%E5%B0%84%E8%B8%A9%E5%9D%91/">
-                            Java反射踩坑
-                        </a>
-                    </h1>
+    
+    
+    <h2 class="post-title">
+        Java的序列化与Serializable
+    </h2>
+    <ul class="post-date">
+        <li>
+            2020-01-11
+        </li>
+        <li>
+            ArchGeass
+        </li>
+    </ul>
+    <div class="post-content">
+        <h1 id="Java的序列化与反序列化"><a href="#Java的序列化与反序列化" class="headerlink" title="Java的序列化与反序列化"></a>Java的序列化与反序列化</h1><p>Java在运行中，将内存中变量状态持久化至硬盘中，叫做序列化；相反的，将硬盘中的文件读取到内存中，叫做反序列化。</p>
+<p>若实现的是Serializable接口，则所有的序列化将会自动进行;<br>若实现的是Externalizable接口，则没有任何东西可以自动序列化，需要在writeExternal方法中进行手工指定所要序列化的变量，这与是否被transient修饰无关</p>
+<hr>
+<h1 id="Serializable-interface"><a href="#Serializable-interface" class="headerlink" title="Serializable interface"></a>Serializable interface</h1><p>需要实现序列化的class需要implements一个interface:java.io.Serializable.<br>然后生成serialVersionUID.<br>在IDEA中生成serialVersionUID需要安装插件”GenerateSerialVersionUID”,然后使用插件生成即可.<br>private static final long serialVersionUID = 1L;</p>
+<hr>
+<h1 id="具体实现Demo"><a href="#具体实现Demo" class="headerlink" title="具体实现Demo"></a>具体实现Demo</h1><hr>
+<h1 id="对于不希望序列化变量的保护"><a href="#对于不希望序列化变量的保护" class="headerlink" title="对于不希望序列化变量的保护"></a>对于不希望序列化变量的保护</h1><p><code>transient</code>序列化对象的时候，这个属性就不会被序列化<br>transient关键字只能修饰变量，而不能修饰方法和类<br>一个静态变量不管是否被transient修饰，均不能被序列化</p>
 
-                    <ul class="post-date">
-                        <li>
-                            March 20, 2020
-                        </li>
-                        <li>
-                            ArchGeass
-                        </li>
-                    </ul>
-                    
-                    <div class="post-content ">
-                        
-                            <a href="/uncategorized/Java%E5%8F%8D%E5%B0%84%E8%B8%A9%E5%9D%91/" class="more-link">Continue reading</a>
-                    </div>
-        </article>
-        
-        <article class="post">
-            
-                    <h1 class="post-title">
-                        <a href="/uncategorized/java8%E7%9F%A5%E8%AF%86%E7%82%B9/">
-                            Java8知识点
-                        </a>
-                    </h1>
-
-                    <ul class="post-date">
-                        <li>
-                            March 20, 2020
-                        </li>
-                        <li>
-                            ArchGeass
-                        </li>
-                    </ul>
-                    
-                    <div class="post-content ">
-                        
-                            <a href="/uncategorized/java8%E7%9F%A5%E8%AF%86%E7%82%B9/" class="more-link">Continue reading</a>
-                    </div>
-        </article>
-        
-</section>
-
+    </div>
+</article>
         </main>
         <aside class="aside">
             <div class="close"></div>

@@ -112,57 +112,30 @@
     </div>
 </header>
         <main class="main">
-            
-<section class="posts">
+            <article class="post">
     
-        <article class="post">
-            
-                    <h1 class="post-title">
-                        <a href="/uncategorized/Java%E5%8F%8D%E5%B0%84%E8%B8%A9%E5%9D%91/">
-                            Java反射踩坑
-                        </a>
-                    </h1>
+    
+    
+    <h2 class="post-title">
+        Java反射踩坑
+    </h2>
+    <ul class="post-date">
+        <li>
+            2020-03-20
+        </li>
+        <li>
+            ArchGeass
+        </li>
+    </ul>
+    <div class="post-content">
+        <h1 id="Java反射踩坑记录"><a href="#Java反射踩坑记录" class="headerlink" title="Java反射踩坑记录"></a>Java反射踩坑记录</h1><p>通过<code>Method.invoke(Object)</code>可以反射调用<em>Object</em>的方法，比如<em>Object</em>有个属性<em>name</em>，可以通过调用这个对象的<code>getName()</code>方法来获取具体的Value。<br>就是这么简单的流程，就踩到以下的坑。</p>
+<h2 id="java-lang-IllegalArgumentException-object-is-not-an-instance-of-declaring-class"><a href="#java-lang-IllegalArgumentException-object-is-not-an-instance-of-declaring-class" class="headerlink" title="java.lang.IllegalArgumentException: object is not an instance of declaring class"></a>java.lang.IllegalArgumentException: object is not an instance of declaring class</h2><p>这个异常是由于<code>invoke()</code>传递的参数<em>Object</em>缺少实例而导致的，再反射调用时，传递的参数应该与调用的<em>method</em>保持类型一致，且为一个被初始化过的对象实例。<br>令：如果被调用的<em>method</em>是一个<em>static</em>的方法，则传递的<em>Object</em>参数可以不必初始化，即可以直接使用<em>classType</em>作为参数。</p>
+<h2 id="java-lang-NoSuchMethodException-com-github-hcsp-reflection-MapBeanConverter-DemoJavaBean"><a href="#java-lang-NoSuchMethodException-com-github-hcsp-reflection-MapBeanConverter-DemoJavaBean" class="headerlink" title="java.lang.NoSuchMethodException: com.github.hcsp.reflection.MapBeanConverter$DemoJavaBean.()"></a>java.lang.NoSuchMethodException: com.github.hcsp.reflection.MapBeanConverter$DemoJavaBean.<init>()</h2><p>这个是由于在使用<code>class..getConstructor().newInstance();</code>进行初始化时，被调用的class不存在无参数的构造方法时引起的。<br>使用<em>new</em>关键字初始化的对象与使用<em>class.getConstructor().newInstance();</em>初始化的对象在本质上是相同的，但new可以显示的调用任意一个构造方法，而<em>newInstance()</em>只能调用无参数的构造方法，当被调用的class不存在无参数的构造方法时，会报上述错误。</p>
+<h2 id="Method-invoke-没有获取到预期中的对象"><a href="#Method-invoke-没有获取到预期中的对象" class="headerlink" title="Method.invoke()没有获取到预期中的对象"></a>Method.invoke()没有获取到预期中的对象</h2><p>在使用反射调用方法获取对象的值时(<em>getName()</em>)，反射调用的参数必须是原本的那个对象，不能是获取<em>Class</em>后，通过<code>Class.getConstructor().newInstance()</code>新构造的对象。因为想要获取的Value只存在于原本的那个对象中，新构造出来的对象不具有原本的属性值，是2个不同的对象。</p>
+<h2 id="getMethod-报错java-lang-NoSuchMethodException"><a href="#getMethod-报错java-lang-NoSuchMethodException" class="headerlink" title="getMethod()报错java.lang.NoSuchMethodException"></a>getMethod()报错java.lang.NoSuchMethodException</h2><p>在使用<code>class.getMethod()</code>找目前方法时，传参需要正确，不光是<em>MethodName</em>，还有<em>parameterTypes</em>，需要传递类型正确且个数正确的<em>Class[]</em>，且基本类型<em>int.class</em>与包装类型<em>Integer.class</em>是不同的。</p>
 
-                    <ul class="post-date">
-                        <li>
-                            March 20, 2020
-                        </li>
-                        <li>
-                            ArchGeass
-                        </li>
-                    </ul>
-                    
-                    <div class="post-content ">
-                        
-                            <a href="/uncategorized/Java%E5%8F%8D%E5%B0%84%E8%B8%A9%E5%9D%91/" class="more-link">Continue reading</a>
-                    </div>
-        </article>
-        
-        <article class="post">
-            
-                    <h1 class="post-title">
-                        <a href="/uncategorized/java8%E7%9F%A5%E8%AF%86%E7%82%B9/">
-                            Java8知识点
-                        </a>
-                    </h1>
-
-                    <ul class="post-date">
-                        <li>
-                            March 20, 2020
-                        </li>
-                        <li>
-                            ArchGeass
-                        </li>
-                    </ul>
-                    
-                    <div class="post-content ">
-                        
-                            <a href="/uncategorized/java8%E7%9F%A5%E8%AF%86%E7%82%B9/" class="more-link">Continue reading</a>
-                    </div>
-        </article>
-        
-</section>
-
+    </div>
+</article>
         </main>
         <aside class="aside">
             <div class="close"></div>

@@ -112,57 +112,44 @@
     </div>
 </header>
         <main class="main">
-            
-<section class="posts">
+            <article class="post">
     
-        <article class="post">
-            
-                    <h1 class="post-title">
-                        <a href="/uncategorized/Java%E5%8F%8D%E5%B0%84%E8%B8%A9%E5%9D%91/">
-                            Java反射踩坑
-                        </a>
-                    </h1>
+    
+    
+    <h2 class="post-title">
+        git的一些小技巧
+    </h2>
+    <ul class="post-date">
+        <li>
+            2020-01-12
+        </li>
+        <li>
+            ArchGeass
+        </li>
+    </ul>
+    <div class="post-content">
+        <h1 id="查找某个文件的作者及修改者"><a href="#查找某个文件的作者及修改者" class="headerlink" title="查找某个文件的作者及修改者"></a>查找某个文件的作者及修改者</h1><p>当我们想知道某个文件的提交/修改者，而文件内容中并没有标明时，可以去查阅此文件的提交记录</p>
+<p>查看某个文件的提交历史</p>
+<ul>
+<li>git log filename<br>例如：</li>
+<li>git log TestDemo.Java</li>
+<li>git log ~/project/java/com/demo/TestDemo.Java</li>
+</ul>
+<p>然后git会显示此文件的详细提交记录，当然包括提交人，提交说明与具体提交日期；<br>以及在每个提交记录后都对应一个hash值，如：</p>
+<ul>
+<li>commit c745b35f33138ed7c28d6ca457384537b16d51bd</li>
+</ul>
+<p>ps.在idea的行号上右键选择<em>annotate<em>后，也能起到同样的效果;<br>以及idea的</em>show history</em>(时钟按钮)也能起到同样效果(查看历史变更)</p>
+<p>查看具体某次提交的记录</p>
+<ul>
+<li>git show hashcode<br>例如：</li>
+<li>git show c745b35f33138ed7c28d6ca457384537b16d51bd</li>
+</ul>
+<p>这样就可以查看到具体那次的提交内容了。<br>当然如果需要将本地文件内容切换到具体那次，可以使用<em>git reset</em>命令</p>
+<hr>
 
-                    <ul class="post-date">
-                        <li>
-                            March 20, 2020
-                        </li>
-                        <li>
-                            ArchGeass
-                        </li>
-                    </ul>
-                    
-                    <div class="post-content ">
-                        
-                            <a href="/uncategorized/Java%E5%8F%8D%E5%B0%84%E8%B8%A9%E5%9D%91/" class="more-link">Continue reading</a>
-                    </div>
-        </article>
-        
-        <article class="post">
-            
-                    <h1 class="post-title">
-                        <a href="/uncategorized/java8%E7%9F%A5%E8%AF%86%E7%82%B9/">
-                            Java8知识点
-                        </a>
-                    </h1>
-
-                    <ul class="post-date">
-                        <li>
-                            March 20, 2020
-                        </li>
-                        <li>
-                            ArchGeass
-                        </li>
-                    </ul>
-                    
-                    <div class="post-content ">
-                        
-                            <a href="/uncategorized/java8%E7%9F%A5%E8%AF%86%E7%82%B9/" class="more-link">Continue reading</a>
-                    </div>
-        </article>
-        
-</section>
-
+    </div>
+</article>
         </main>
         <aside class="aside">
             <div class="close"></div>

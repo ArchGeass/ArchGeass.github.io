@@ -112,57 +112,29 @@
     </div>
 </header>
         <main class="main">
-            
-<section class="posts">
+            <article class="post">
     
-        <article class="post">
-            
-                    <h1 class="post-title">
-                        <a href="/uncategorized/Java%E5%8F%8D%E5%B0%84%E8%B8%A9%E5%9D%91/">
-                            Java反射踩坑
-                        </a>
-                    </h1>
+    
+    
+    <h2 class="post-title">
+        Map的一些用法细节
+    </h2>
+    <ul class="post-date">
+        <li>
+            2020-04-03
+        </li>
+        <li>
+            ArchGeass
+        </li>
+    </ul>
+    <div class="post-content">
+        <p>1.map存储一个key对应多个value:<br>List<String> values=new ArraysList&lt;&gt;();<br>map.put(key,values);<br>values.add(xxx);<br>values.add(xxx);<br>map.entrySet().forEach(()-&gt;{});<br>这样可以动态修改每个values中的内容</p>
+<p>2.map存储多个key对应一个value<br>MultiKeyMap&lt;k1,k2,…,kn,v&gt; multiMap = new MultiKeyMap();<br>遍历MultiKeyMap:<br>multiKeyMap.entrySet().stream.map(map-{<br>Map.Entry&lt;MultiKey&lt;? extends String&gt;, String&gt; entry = (Map.Entry&lt;MultiKey&lt;? extends String&gt;, String&gt;)map;<br>entry.getKey().getKey(0);<br>entry.getKey().getKey(1);<br>entry.getValue();<br>return xx;<br>}).collect(toList());<br>MultiKeyMap遍历需要对其中一个元素做类型转换，因为没有values()这样直接获取value的方法,默认提供的方法和Map本身有区别</p>
+<p>ps.MultiKeyMap支持多个key(more than 2)</p>
+<p>另外一种实现思路是将多个key存储到一个自定义的class中，然后将这个class当作key来使用，map用原本的map即可</p>
 
-                    <ul class="post-date">
-                        <li>
-                            March 20, 2020
-                        </li>
-                        <li>
-                            ArchGeass
-                        </li>
-                    </ul>
-                    
-                    <div class="post-content ">
-                        
-                            <a href="/uncategorized/Java%E5%8F%8D%E5%B0%84%E8%B8%A9%E5%9D%91/" class="more-link">Continue reading</a>
-                    </div>
-        </article>
-        
-        <article class="post">
-            
-                    <h1 class="post-title">
-                        <a href="/uncategorized/java8%E7%9F%A5%E8%AF%86%E7%82%B9/">
-                            Java8知识点
-                        </a>
-                    </h1>
-
-                    <ul class="post-date">
-                        <li>
-                            March 20, 2020
-                        </li>
-                        <li>
-                            ArchGeass
-                        </li>
-                    </ul>
-                    
-                    <div class="post-content ">
-                        
-                            <a href="/uncategorized/java8%E7%9F%A5%E8%AF%86%E7%82%B9/" class="more-link">Continue reading</a>
-                    </div>
-        </article>
-        
-</section>
-
+    </div>
+</article>
         </main>
         <aside class="aside">
             <div class="close"></div>

@@ -112,57 +112,52 @@
     </div>
 </header>
         <main class="main">
-            
-<section class="posts">
+            <article class="post">
     
-        <article class="post">
-            
-                    <h1 class="post-title">
-                        <a href="/uncategorized/Java%E5%8F%8D%E5%B0%84%E8%B8%A9%E5%9D%91/">
-                            Java反射踩坑
-                        </a>
-                    </h1>
+    
+    
+    <h2 class="post-title">
+        Java的一些小技巧
+    </h2>
+    <ul class="post-date">
+        <li>
+            2020-01-12
+        </li>
+        <li>
+            ArchGeass
+        </li>
+    </ul>
+    <div class="post-content">
+        <h1 id="Java启动参数"><a href="#Java启动参数" class="headerlink" title="Java启动参数"></a>Java启动参数</h1><p>在java文件的启动项增加以下参数，可以生成<em>dump</em>文件</p>
+<ul>
+<li>-XX:+HeapDumpOnOutOfMemoryError</li>
+</ul>
+<h2 id="生成堆文件"><a href="#生成堆文件" class="headerlink" title="生成堆文件"></a>生成堆文件</h2><p>在项目的根目录下，会生成名为<em>java_pid6116.hprof</em>一类的文件，文件大小等同于当前计算机<em>堆</em>的大小;<br>文件记录了当前堆中保存的程序运行快照。</p>
+<h2 id="分析堆文件"><a href="#分析堆文件" class="headerlink" title="分析堆文件"></a>分析堆文件</h2><hr>
+<h1 id="Java远程调试"><a href="#Java远程调试" class="headerlink" title="Java远程调试"></a>Java远程调试</h1><p>在启动时增加以下启动命令即可(JAVA 5.0及之后版本)</p>
+<ul>
+<li>java agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005<br>exp:</li>
+<li>java agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005 -jar SpringBootApplication.jar</li>
+</ul>
+<p>参数详解:</p>
+<blockquote>
+<ul>
+<li>-Xdebug：JVM在DEBUG模式下工作</li>
+</ul>
+</blockquote>
+<ul>
+<li>-Xrunjdwp：JVM使用(java debug wire protocol)来运行调试环境</li>
+<li>transport：监听Socket端口连接方式,常用的dt_socket表示使用socket连接</li>
+<li>server：=y表示当前是调试服务端，=n表示当前是调试客户端</li>
+<li>suspend：=n表示启动时不中断</li>
+<li>address：=8000表示本地监听5555端口</li>
+</ul>
+<p>然后在IDEA里新建remote，添加同样的参数，进入源代码后即可进行调试</p>
+<hr>
+<h1 id="jdk1-7"><a href="#jdk1-7" class="headerlink" title="jdk1.7"></a>jdk1.7</h1><h2 id="try-with-resources"><a href="#try-with-resources" class="headerlink" title="try-with-resources"></a>try-with-resources</h2><p>try-with-resources语句是一个try语句，用于声明一个或多个资源。 资源是程序完成后必须关闭的对象。 try-with-resources语句可确保在语句末尾关闭每个资源。 任何实现java.lang.AutoCloseable的对象（包括所有实现java.io.Closeable的对象）都可以用作资源。<br>简单来讲就是之前用finally关闭的资源,现在可以用<code>try-with-resources</code>的方式让程序自动执行关闭操作</p>
 
-                    <ul class="post-date">
-                        <li>
-                            March 20, 2020
-                        </li>
-                        <li>
-                            ArchGeass
-                        </li>
-                    </ul>
-                    
-                    <div class="post-content ">
-                        
-                            <a href="/uncategorized/Java%E5%8F%8D%E5%B0%84%E8%B8%A9%E5%9D%91/" class="more-link">Continue reading</a>
-                    </div>
-        </article>
-        
-        <article class="post">
-            
-                    <h1 class="post-title">
-                        <a href="/uncategorized/java8%E7%9F%A5%E8%AF%86%E7%82%B9/">
-                            Java8知识点
-                        </a>
-                    </h1>
-
-                    <ul class="post-date">
-                        <li>
-                            March 20, 2020
-                        </li>
-                        <li>
-                            ArchGeass
-                        </li>
-                    </ul>
-                    
-                    <div class="post-content ">
-                        
-                            <a href="/uncategorized/java8%E7%9F%A5%E8%AF%86%E7%82%B9/" class="more-link">Continue reading</a>
-                    </div>
-        </article>
-        
-</section>
-
+    </div>
+</article>
         </main>
         <aside class="aside">
             <div class="close"></div>
